@@ -10,3 +10,10 @@ fun! lesscss#default(name, default)
     endif
     return {a:name}
 endf
+
+function! lesscss#warn(str)
+  echohl WarningMsg
+  echomsg a:str
+  echohl None
+  let v:warningmsg = a:str
+endfunction
