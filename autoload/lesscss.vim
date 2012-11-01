@@ -4,12 +4,12 @@
 " Last Modified: Nov 01, 2012
 
 " Set default value if not exist
-fun! lesscss#default(name, default)
+function! lesscss#default(name, default)
     if !exists(a:name)
         let {a:name} = a:default
     endif
     return {a:name}
-endf
+endfunction
 
 function! lesscss#warn(str)
   echohl WarningMsg
