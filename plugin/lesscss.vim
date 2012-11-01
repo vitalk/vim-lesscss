@@ -26,5 +26,4 @@ endfunction
 
 
 " create a css file on write but shallow default messages
-" autocmd BufWritePost *.less silent make
 autocmd BufWritePost *.less silent call s:lesscss()
