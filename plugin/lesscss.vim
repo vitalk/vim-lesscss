@@ -21,7 +21,7 @@ function! s:lesscss()
     call lesscss#warn('css dir does not exists, created a new one')
     call mkdir(s:lesscss_out, '', 0755)
   endif
-  execute '!'.g:lesscss_cmd.' '.shellescape(expand('%')).' > '.shellescape(s:lesscss_out.expand('%:t:r').'.css')
+  execute '!cd %:p:h && '.g:lesscss_cmd.' %:t > '.s:lesscss_out.'%:t:r.css'
 endfunction
 
 
