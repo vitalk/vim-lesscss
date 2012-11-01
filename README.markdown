@@ -32,10 +32,6 @@ define it:
 let g:lesscss_cmd = 'lessc'
 ```
 
-## Issues
-
-* if `g:lesscss_save_to` specified and not exists nothing happens.
-
 ## License
 
 Copyright © Vital Kudzelka <vital.kudzelka@gmail.com>. Distribute under the
