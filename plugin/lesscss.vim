@@ -1,7 +1,7 @@
 " File: lesscss.vim
 " Author: Vital Kudzelka
 " Description: Vim plugin that make it easy to edit less files without need to manually update corresponding css file.
-" Last Modified: Nov 01, 2012
+" Last Modified: Nov 02, 2012
 
 if exists("g:loaded_lesscss") || &cp
   finish
@@ -17,7 +17,7 @@ call lesscss#default('g:lesscss_save_to', '')
 function! s:lesscss()
   let s:lesscss_out = expand('%:p:h').'/'.g:lesscss_save_to
 
-  if isdirectory(s:lesscss_out) != 1
+  if !isdirectory(s:lesscss_out)
     call lesscss#warn('css dir does not exists, created a new one')
     call mkdir(s:lesscss_out, '', 0755)
   endif
