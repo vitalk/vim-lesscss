@@ -13,7 +13,7 @@ cd ~/.vim/bundle
 git clone git://github.com/vitalk/vim-lesscss.git
 ```
 
-## Walktrought
+## Walkthrough
 
 Just open your `less` file in Vim and edit it. On save corresponding `css` file
 will be created with the same name as original. If your want to save the output
