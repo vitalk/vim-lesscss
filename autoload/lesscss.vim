@@ -1,7 +1,9 @@
-" File: lesscss.vim
-" Author: Vital Kudzelka
-" Description: Vim plugin that make it easy to edit less files without need to manually update corresponding css file.
-" Last Modified: Nov 01, 2012
+" File:          lesscss.vim
+" Author:        Vital Kudzelka
+" Version:       0.1
+" Description:   Vim plugin that make it easy to edit less files without need to
+"                manually update corresponding css file.
+" Last Modified: Nov 12, 2012
 
 " Set default value if not exist
 function! lesscss#default(name, default)
