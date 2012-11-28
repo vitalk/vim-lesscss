@@ -23,10 +23,10 @@ Just open your 'less' file in Vim and edit it. On save corresponding 'css' file
 will be created with the same name as original. If your want to save the output
 'css' files anywhere else add to your 'vimrc':
 
-" save css files to separate css folder(relative to original less)
+" save css files to separate css folder(relative to original less location)
 let g:lesscss_save_to = '../css/'
 
 LICENSE
 
 Copyright © Vital Kudzelka <vital.kudzelka@gmail.com>.
-Distribute under the same terms as Vim itself. See `:help license` for details.
+Distribute under the same terms as Vim itself. See ':help license' for details.
