@@ -16,14 +16,14 @@ WALKTHROUGH
 Change this to the location of 'lessc' on your system, or define some additional
 arguments when 'lessc' is called:
 
-" less to css executable(full path or simple executable)
+" less to css executable (full path or simple executable)
 let g:lesscss_cmd = '/usr/bin/env lessc'
 
 Just open your 'less' file in Vim and edit it. On save corresponding 'css' file
 will be created with the same name as original. If your want to save the output
 'css' files anywhere else add to your 'vimrc':
 
-" save css files to separate css folder(relative to original less location)
+" save css files to separate css folder (relative to original less location)
 let g:lesscss_save_to = '../css/'
 
 LICENSE
