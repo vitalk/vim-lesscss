@@ -1,6 +1,6 @@
 " File:          lesscss.vim
 " Author:        Vital Kudzelka
-" Version:       0.1
+" Version:       0.2
 " Description:   Vim plugin that make it easy to edit less files without need to
 "                manually update corresponding css file.
 " Last Modified: Nov 28, 2012
