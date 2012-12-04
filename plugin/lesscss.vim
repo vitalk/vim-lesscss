@@ -3,20 +3,27 @@
 " Version:       0.2
 " Description:   Vim plugin that make it easy to edit less files without need to
 "                manually update corresponding css file.
-" Last Modified: Nov 28, 2012
+" Last Modified: December 04, 2012
+
+" Guard {{{
 
 if exists("g:loaded_lesscss") || &cp
   finish
 endif
 let g:loaded_lesscss = 1
 
+" }}}
+" Default settings {{{
+
 " less to css executable(full path or executable)
 call lesscss#default('g:lesscss_cmd', '/usr/bin/env lessc')
 " where to save to
 call lesscss#default('g:lesscss_save_to', '')
 
+" }}}
+" Plugin {{{
 
-function! s:lesscss()
+function! s:lesscss() " {{{ create css file for less source
   let s:lesscss_out = expand('%:p:h').'/'.g:lesscss_save_to
 
   " prevent writing to remote dirs like ftp://*
@@ -27,8 +34,12 @@ function! s:lesscss()
     endif
     exe '!cd %:p:h && '.g:lesscss_cmd.' %:t > '.s:lesscss_out.'%:t:r.css'
   endif
-endfunction
+endfunction " }}}
 
+" }}}
+" Commands {{{
 
 " create a css file on write but swallow default messages
 autocmd BufWritePost *.less silent call s:lesscss()
+
+" }}}
