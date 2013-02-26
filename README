@@ -26,6 +26,12 @@ will be created with the same name as original. If your want to save the output
 " save css files to separate css folder (relative to original less location)
 let g:lesscss_save_to = '../css/'
 
+To toggle plugin just use the default key binding '<Leader>l' or remap it to
+something nice.
+
+" remap plugin toggle
+nnoremap <Leader>l :call lesscss#toggle()<CR>
+
 LICENSE
 
 Copyright © Vital Kudzelka <vital.kudzelka@gmail.com>.
