@@ -17,8 +17,10 @@ let g:loaded_lesscss = 1
 
 " less to css executable(full path or executable)
 call lesscss#default('g:lesscss_cmd', '/usr/bin/env lessc')
+
 " where to save to
 call lesscss#default('g:lesscss_save_to', '')
+
 " enable lesscss by default
 call lesscss#default('g:vim_lesscss', 1)
 
