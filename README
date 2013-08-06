@@ -17,7 +17,7 @@ Change this to the location of 'lessc' on your system, or define some additional
 arguments when 'lessc' is called:
 
 " less to css executable (full path or simple executable)
-let g:lesscss_cmd = '/usr/bin/env lessc'
+let g:lesscss_cmd = '$(which lessc)'
 
 Just open your 'less' file in Vim and edit it. On save corresponding 'css' file
 will be created with the same name as original. If your want to save the output

@@ -16,7 +16,7 @@ let g:loaded_lesscss = 1
 " Default settings {{{
 
 " less to css executable(full path or executable)
-call lesscss#default('g:lesscss_cmd', '/usr/bin/env lessc')
+call lesscss#default('g:lesscss_cmd', '$(which lessc)')
 
 " where to save to
 call lesscss#default('g:lesscss_save_to', '')
