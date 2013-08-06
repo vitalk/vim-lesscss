@@ -69,3 +69,14 @@ function! lesscss#apply(opts)
 endfunction
 
 " }}}
+" Initialize plugin {{{
+
+function! lesscss#init()
+  if g:vim_lesscss
+    silent call lesscss#on()
+  else
+    silent call lesscss#off()
+  endif
+endfunction
+
+" }}}

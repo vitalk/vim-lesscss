@@ -100,9 +100,7 @@ endf
 
 " }}}
 
-" toggle plugin on/off to attach autocommands
-silent call lesscss#toggle()
-silent call lesscss#toggle()
+call lesscss#init()
 
 " }}}
 " Key bindings {{{
