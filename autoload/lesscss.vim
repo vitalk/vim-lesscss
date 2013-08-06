@@ -27,20 +27,36 @@ endfunction
 " Toggle plugin {{{
 
 function! lesscss#toggle()
-  if !g:vim_lesscss
-    augroup vim_lesscss
-      au!
-      au BufWritePost *.less silent Lesscss
-    augroup END
-    call lesscss#warn('lesscss on')
+  if g:vim_lesscss
+    call lesscss#off()
   else
-    augroup vim_lesscss
-      au!
-    augroup END
-    call lesscss#warn('lesscss off')
+    call lesscss#on()
   endif
+endfunction
 
-  let g:vim_lesscss = g:vim_lesscss ? 0 : 1
+" }}}
+" Enable plugin {{{
+
+function! lesscss#on()
+  augroup vim_lesscss
+    au!
+    au BufWritePost *.less silent Lesscss
+  augroup END
+
+  let g:vim_lesscss = 1
+  call lesscss#warn('lesscss on')
+endfunction
+
+" }}}
+" Disable plugin {{{
+
+function! lesscss#off()
+  augroup vim_lesscss
+    au!
+  augroup END
+
+  let g:vim_lesscss = 0
+  call lesscss#warn('lesscss off')
 endfunction
 
 " }}}
