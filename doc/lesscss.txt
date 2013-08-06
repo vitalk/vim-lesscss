@@ -74,7 +74,7 @@ Default: {
 Use this option to refine custom lesscss commands.
 
                                                                *'vim_lesscss'*
-Default: 0
+Default: 1
 If enabled, |:Lesscss| runs on each LESS file save.
 
 ------------------------------------------------------------------------------
