@@ -97,14 +97,9 @@ endf
 
 " }}}
 
-" }}}
-" Commands {{{
-
-augroup vim_lesscss
-  au!
-  " create a css file on write but swallow default messages
-  au BufWritePost *.less silent Lesscss
-augroup END
+" toggle plugin on/off to attach autocommands
+silent call lesscss#toggle()
+silent call lesscss#toggle()
 
 " }}}
 " Key bindings {{{
