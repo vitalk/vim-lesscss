@@ -33,6 +33,13 @@ call lesscss#default('g:lesscss_commands', {
 " }}}
 " Plugin {{{
 
+function! s:lesscss_completion(arglead, cmdline, cursorpos) " {{{ Custom completion list for :Lesscss
+  let names = keys(g:lesscss_commands)
+  let cmdonly = substitute(a:cmdline, '^\s*\S\+\s*', '', '')
+
+  return filter(names, 'v:val =~# ''^\V'' . escape(cmdonly, ''\'')')
+endf " }}}
+
 function! s:lesscss_pipeline() " {{{ Create css file for less source
   let s:lesscss_out = expand('%:p:h').'/'.g:lesscss_save_to
 
@@ -82,6 +89,7 @@ endf " }}}
 " Commands {{{
 
 command! -nargs=?
+      \  -complete=customlist,<SID>lesscss_completion
       \  Lesscss  call s:lesscss(<f-args>)
 
 augroup vim_lesscss
