@@ -24,10 +24,13 @@ call lesscss#default('g:lesscss_save_to', '')
 " enable lesscss by default
 call lesscss#default('g:vim_lesscss', 1)
 
+" registered commands
+call lesscss#default('g:lesscss_commands', {})
+
 " }}}
 " Plugin {{{
 
-function! s:lesscss() " {{{ create css file for less source
+function! s:lesscss_pipeline() " {{{ Create css file for less source
   let s:lesscss_out = expand('%:p:h').'/'.g:lesscss_save_to
 
   " prevent writing to remote dirs like ftp://*
@@ -40,10 +43,43 @@ function! s:lesscss() " {{{ create css file for less source
   endif
 endfunction " }}}
 
+function! s:lesscss(...) " {{{ Run predefined lesscss command
+  if empty(a:000)
+    if !exists('s:lesscss_last_command')
+      call lesscss#warn('Lesscss has not been called yet; no command to reuse!')
+      return
+    endif
+  else
+    let s:lesscss_last_command = a:1
+  endif
+
+  let command = s:lesscss_last_command
+
+  try
+    if has_key(g:lesscss_commands, command)
+      let opts = g:lesscss_commands[command]
+
+      " apply custom options
+      for [key, value] in items(opts)
+        let {key} = value
+      endfor
+
+      " silent the less compiler output and force redraw window
+      execute ':silent call s:lesscss_pipeline() | :redraw!'
+    else
+      throw 'Unrecognized command ' . command
+    endif
+  catch
+    call lesscss#warn(v:exception)
+  endtry
+
+endf " }}}
+
 " }}}
 " Commands {{{
 
-command! -nargs=0 Lesscss  call s:lesscss()
+command! -nargs=?
+      \  Lesscss  call s:lesscss(<f-args>)
 
 augroup vim_lesscss
   au!
