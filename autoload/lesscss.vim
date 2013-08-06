@@ -34,7 +34,9 @@ function! lesscss#toggle()
     augroup END
     call lesscss#warn('lesscss on')
   else
-    augroup! vim_lesscss
+    augroup vim_lesscss
+      au!
+    augroup END
     call lesscss#warn('lesscss off')
   endif
 
