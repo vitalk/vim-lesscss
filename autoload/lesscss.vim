@@ -32,10 +32,10 @@ function! lesscss#toggle()
       au!
       au BufWritePost *.less silent Lesscss
     augroup END
-    echo 'lesscss on'
+    call lesscss#warn('lesscss on')
   else
     augroup! vim_lesscss
-    echo 'lesscss off'
+    call lesscss#warn('lesscss off')
   endif
 
   let g:vim_lesscss = g:vim_lesscss ? 0 : 1
