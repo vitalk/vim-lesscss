@@ -24,7 +24,7 @@ function! lesscss#toggle() " {{{ toggle plugin
     augroup END
     echo 'lesscss on'
   else
-    au! vim_lesscss
+    augroup! vim_lesscss
     echo 'lesscss off'
   endif
 
