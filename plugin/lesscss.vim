@@ -64,6 +64,9 @@ endfunction
 "
 " Run previous command if 'name' is skipped.  Show error message if a command
 " with the same 'name' does not registered and nothing to reuse.
+command! -nargs=?
+      \  -complete=customlist,<SID>lesscss_completion
+      \  Lesscss  call s:lesscss(<f-args>)
 
 function! s:lesscss(...)
   if empty(a:000)
@@ -98,11 +101,9 @@ function! s:lesscss(...)
 endf
 
 " }}}
-" Commands {{{
 
-command! -nargs=?
-      \  -complete=customlist,<SID>lesscss_completion
-      \  Lesscss  call s:lesscss(<f-args>)
+" }}}
+" Commands {{{
 
 augroup vim_lesscss
   au!
