@@ -4,19 +4,29 @@
 "                manually update corresponding css file.
 " Last Modified: January 20, 2013
 
-function! lesscss#default(name, default) " {{{ set default value if not exist
+" Set default value if not exist {{{
+
+function! lesscss#default(name, default)
   if !exists(a:name)
     let {a:name} = a:default
   endif
   return {a:name}
-endfunction " }}}
-function! lesscss#warn(str) " {{{ echo warning message
+endfunction
+
+" }}}
+" Echo warning message {{{
+
+function! lesscss#warn(str)
   echohl WarningMsg
   echomsg a:str
   echohl None
   let v:warningmsg = a:str
-endfunction " }}}
-function! lesscss#toggle() " {{{ toggle plugin
+endfunction
+
+" }}}
+" Toggle plugin {{{
+
+function! lesscss#toggle()
   if !g:vim_lesscss
     augroup vim_lesscss
       au!
@@ -29,4 +39,6 @@ function! lesscss#toggle() " {{{ toggle plugin
   endif
 
   let g:vim_lesscss = g:vim_lesscss ? 0 : 1
-endfunction " }}}
+endfunction
+
+" }}}

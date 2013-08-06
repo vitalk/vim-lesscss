@@ -33,14 +33,19 @@ call lesscss#default('g:lesscss_commands', {
 " }}}
 " Plugin {{{
 
-function! s:lesscss_completion(arglead, cmdline, cursorpos) " {{{ Custom completion list for :Lesscss
+" Custom completion list for :Lesscss {{{
+
+function! s:lesscss_completion(arglead, cmdline, cursorpos)
   let names = keys(g:lesscss_commands)
   let cmdonly = substitute(a:cmdline, '^\s*\S\+\s*', '', '')
 
   return filter(names, 'v:val =~# ''^\V'' . escape(cmdonly, ''\'')')
-endf " }}}
+endf
 
-function! s:lesscss_pipeline() " {{{ Create css file for less source
+" }}}
+" Create css file for less source {{{
+
+function! s:lesscss_pipeline()
   let s:lesscss_out = expand('%:p:h').'/'.g:lesscss_save_to
 
   " prevent writing to remote dirs like ftp://*
@@ -51,9 +56,16 @@ function! s:lesscss_pipeline() " {{{ Create css file for less source
     endif
     exe '!cd %:p:h && '.g:lesscss_cmd.' %:t > '.s:lesscss_out.'%:t:r.css'
   endif
-endfunction " }}}
+endfunction
 
-function! s:lesscss(...) " {{{ Run predefined lesscss command
+" }}}
+" Run predefined lesscss command or reuse previous {{{
+" Lesscss [name]
+"
+" Run previous command if 'name' is skipped.  Show error message if a command
+" with the same 'name' does not registered and nothing to reuse.
+
+function! s:lesscss(...)
   if empty(a:000)
     if !exists('s:lesscss_last_command')
       call lesscss#warn('Lesscss has not been called yet; no command to reuse!')
@@ -83,7 +95,7 @@ function! s:lesscss(...) " {{{ Run predefined lesscss command
     call lesscss#warn(v:exception)
   endtry
 
-endf " }}}
+endf
 
 " }}}
 " Commands {{{
