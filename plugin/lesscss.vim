@@ -25,7 +25,10 @@ call lesscss#default('g:lesscss_save_to', '')
 call lesscss#default('g:vim_lesscss', 1)
 
 " registered commands
-call lesscss#default('g:lesscss_commands', {})
+call lesscss#default('g:lesscss_commands', {
+      \ 'uncompress': {'g:lesscss_cmd': '$(which lessc)'},
+      \ 'compress':   {'g:lesscss_cmd': '$(which lessc) --compress -O2'},
+      \ })
 
 " }}}
 " Plugin {{{
