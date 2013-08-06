@@ -42,3 +42,12 @@ function! lesscss#toggle()
 endfunction
 
 " }}}
+" Apply options from dictionary {{{
+
+function! lesscss#apply(opts)
+  for [key, value] in items(a:opts)
+    let {key} = value
+  endfor
+endfunction
+
+" }}}

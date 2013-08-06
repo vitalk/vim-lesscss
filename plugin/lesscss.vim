@@ -82,11 +82,7 @@ function! s:lesscss(...)
   try
     if has_key(g:lesscss_commands, command)
       let opts = g:lesscss_commands[command]
-
-      " apply custom options
-      for [key, value] in items(opts)
-        let {key} = value
-      endfor
+      call lesscss#apply(opts)
 
       " silent the less compiler output and force redraw window
       execute ':silent call s:lesscss_pipeline() | :redraw!'
