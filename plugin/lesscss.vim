@@ -51,8 +51,7 @@ function! s:lesscss_pipeline()
   " prevent writing to remote dirs like ftp://*
   if s:lesscss_out !~# '\v^\w+\:\/'
     if !isdirectory(s:lesscss_out)
-      call lesscss#warn('css dir does not exists, new will be created')
-      exe 'silent !mkdir -p '.s:lesscss_out.' > /dev/null 2>&1'
+      exe '!mkdir -p '.s:lesscss_out.' > /dev/null 2>&1'
     endif
     exe '!cd %:p:h && '.g:lesscss_cmd.' %:t > '.s:lesscss_out.'%:t:r.css'
   endif
