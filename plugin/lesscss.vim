@@ -29,7 +29,7 @@ call lesscss#default('g:lesscss_toggle_key', '<Leader>l')
 
 " registered commands
 call lesscss#default('g:lesscss_commands', {
-      \ 'uncompress': {'g:lesscss_cmd': '$(which lessc)'},
+      \ 'nocompress': {'g:lesscss_cmd': '$(which lessc)'},
       \ 'compress':   {'g:lesscss_cmd': '$(which lessc) --compress -O2'},
       \ })
 

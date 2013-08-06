@@ -67,7 +67,7 @@ nice: >
 
                                                           *'lesscss_commands'*
 Default: {
-  'uncompress': {'g:lesscss_cmd': '$(which lessc)'},
+  'nocompress': {'g:lesscss_cmd': '$(which lessc)'},
   'compress':   {'g:lesscss_cmd': '$(which lessc) --compress -O2'},
 }
 
