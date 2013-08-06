@@ -24,6 +24,9 @@ call lesscss#default('g:lesscss_save_to', '')
 " enable lesscss by default
 call lesscss#default('g:vim_lesscss', 1)
 
+" default key binding
+call lesscss#default('g:lesscss_toggle_key', '<Leader>l')
+
 " registered commands
 call lesscss#default('g:lesscss_commands', {
       \ 'uncompress': {'g:lesscss_cmd': '$(which lessc)'},
@@ -104,6 +107,8 @@ silent call lesscss#toggle()
 " }}}
 " Key bindings {{{
 
-nnoremap <Leader>l :call lesscss#toggle()<CR>
+if !empty(g:lesscss_toggle_key)
+  exe 'nnoremap' g:lesscss_toggle_key ':call lesscss#toggle()<CR>'
+endif
 
 " }}}

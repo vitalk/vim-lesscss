@@ -58,6 +58,13 @@ For example, to save css files to separate css folder use: >
     let g:lesscss_save_to = '../css/'
 <
 
+                                                        *'lesscss_toggle_key'*
+Default: '<Leader>l'
+The default key binding to toggle plugin.  Feel free to remap it to something
+nice: >
+    let g:lesscss_toggle_key = '<Leader>.'
+<
+
                                                           *'lesscss_commands'*
 Default: {
   'uncompress': {'g:lesscss_cmd': '$(which lessc)'},
@@ -85,9 +92,7 @@ Out of the box, defined only one mapping to toggle lesscss.
 
     `<Leader>l` Toggle plugin on/off
 
-Feel free to remap it to something nice: >
-    nnoremap <Leader>l :call lesscss#toggle()<CR>
-<
+See |'lesscss_toggle_key'| for details.
 
 ==============================================================================
 3. About                                                       *lesscss-about*
