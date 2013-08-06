@@ -77,6 +77,16 @@ function! lesscss#init()
   else
     silent call lesscss#off()
   endif
+
+  " Create a command with default options, show warning to user if it try to use
+  " the reserved 'default' name.
+  if has_key(g:lesscss_commands, 'default')
+    call lesscss#warn('The command name ''default'' reserved by lesscss, please use another name')
+  endif
+  let g:lesscss_commands['default'] = {
+        \ 'g:lesscss_cmd': g:lesscss_cmd,
+        \ 'g:lesscss_save_to': g:lesscss_save_to,
+        \ }
 endfunction
 
 " }}}

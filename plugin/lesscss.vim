@@ -64,18 +64,17 @@ endfunction
 " Run predefined lesscss command or reuse previous {{{
 " Lesscss [name]
 "
-" Run previous command if 'name' is skipped.  Show error message if a command
-" with the same 'name' does not registered and nothing to reuse.
+" Run previous command if 'name' is skipped. Use 'default' command if nothing to
+" reuse.
 command! -nargs=?
       \  -complete=customlist,<SID>lesscss_completion
       \  Lesscss  call s:lesscss(<f-args>)
 
 function! s:lesscss(...)
   if empty(a:000)
-    if !exists('s:lesscss_last_command')
-      call lesscss#warn('Lesscss has not been called yet; no command to reuse!')
-      return
-    endif
+    let s:lesscss_last_command = exists('s:lesscss_last_command')
+          \ ? s:lesscss_last_command
+          \ : 'default'
   else
     let s:lesscss_last_command = a:1
   endif
