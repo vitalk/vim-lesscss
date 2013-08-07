@@ -53,14 +53,14 @@ endf
 function! s:lesscss_pipeline()
   let lessc = lesscss#get_option('lesscss_cmd')
   let save_to = lesscss#get_option('lesscss_save_to')
-  let s:lesscss_out = expand('%:p:h').'/'.save_to
+  let save_to = expand('%:p:h').'/'.save_to
 
   " prevent writing to remote dirs like ftp://*
-  if s:lesscss_out !~# '\v^\w+\:\/'
-    if !isdirectory(s:lesscss_out)
-      exe '!mkdir -p '.s:lesscss_out.' > /dev/null 2>&1'
+  if save_to !~# '\v^\w+\:\/'
+    if !isdirectory(save_to)
+      exe '!mkdir -p '.save_to.' > /dev/null 2>&1'
     endif
-    exe '!cd %:p:h && '.lessc.' %:t > '.s:lesscss_out.'%:t:r.css'
+    exe '!cd %:p:h && '.lessc.' %:t > '.save_to.'%:t:r.css'
   endif
 endfunction
 
