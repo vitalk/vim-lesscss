@@ -35,7 +35,7 @@ let g:lesscss_toggle_key = '<Leader>.'
 Or disable it by default
 
 " disable plugin at startup
-let g:vim_lesscss = 0
+let g:lesscss_on = 0
 
 LICENSE
 

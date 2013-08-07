@@ -77,7 +77,7 @@ dictionary that define |lesscss-options| you want to use when |:Lesscss| runs.
 Note: The name 'default' reserved for default options, e.g. options that user
 set in your `.vimrc`.
 
-                                                               *'vim_lesscss'*
+                                                               *'lesscss_on'*
 Default: 1
 If enabled, |:Lesscss| runs on each LESS file save.
 

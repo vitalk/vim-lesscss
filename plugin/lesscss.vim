@@ -22,7 +22,7 @@ call lesscss#default('g:lesscss_cmd', '$(which lessc)')
 call lesscss#default('g:lesscss_save_to', '')
 
 " enable lesscss by default
-call lesscss#default('g:vim_lesscss', 1)
+call lesscss#default('g:lesscss_on', 1)
 
 " default key binding
 call lesscss#default('g:lesscss_toggle_key', '<Leader>l')

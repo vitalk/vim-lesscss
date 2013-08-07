@@ -27,7 +27,7 @@ endfunction
 " Toggle plugin {{{
 
 function! lesscss#toggle()
-  if g:vim_lesscss
+  if g:lesscss_on
     call lesscss#off()
   else
     call lesscss#on()
@@ -43,7 +43,7 @@ function! lesscss#on()
     au BufWritePost *.less silent Lesscss
   augroup END
 
-  let g:vim_lesscss = 1
+  let g:lesscss_on = 1
   call lesscss#warn('lesscss on')
 endfunction
 
@@ -55,7 +55,7 @@ function! lesscss#off()
     au!
   augroup END
 
-  let g:vim_lesscss = 0
+  let g:lesscss_on = 0
   call lesscss#warn('lesscss off')
 endfunction
 
@@ -72,7 +72,7 @@ endfunction
 " Initialize plugin {{{
 
 function! lesscss#init()
-  if g:vim_lesscss
+  if g:lesscss_on
     silent call lesscss#on()
   else
     silent call lesscss#off()
