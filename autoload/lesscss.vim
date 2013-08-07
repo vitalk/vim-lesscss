@@ -38,11 +38,6 @@ endfunction
 " Enable plugin {{{
 
 function! lesscss#on()
-  augroup vim_lesscss
-    au!
-    au BufWritePost *.less silent Lesscss
-  augroup END
-
   let g:lesscss_on = 1
   call lesscss#warn('lesscss on')
 endfunction
@@ -51,10 +46,6 @@ endfunction
 " Disable plugin {{{
 
 function! lesscss#off()
-  augroup vim_lesscss
-    au!
-  augroup END
-
   let g:lesscss_on = 0
   call lesscss#warn('lesscss off')
 endfunction
@@ -72,11 +63,11 @@ endfunction
 " Initialize plugin {{{
 
 function! lesscss#init()
-  if g:lesscss_on
-    silent call lesscss#on()
-  else
-    silent call lesscss#off()
-  endif
+  " Attach autocmd to run Lesscss on every buffer save.
+  augroup vim_lesscss
+    au!
+    au BufWritePost *.less silent Lesscss
+  augroup END
 
   " Create a command with default options, show warning to user if it try to use
   " the reserved 'default' name.

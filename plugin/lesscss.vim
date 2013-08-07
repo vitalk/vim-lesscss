@@ -29,6 +29,8 @@ call lesscss#default('g:lesscss_toggle_key', '<Leader>l')
 
 " registered commands
 call lesscss#default('g:lesscss_commands', {
+      \ 'on': {'g:lesscss_on': 1},
+      \ 'off': {'g:lesscss_on': 0},
       \ 'nocompress': {'g:lesscss_cmd': '$(which lessc)'},
       \ 'compress':   {'g:lesscss_cmd': '$(which lessc) --compress -O2'},
       \ })
