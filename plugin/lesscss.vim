@@ -51,14 +51,16 @@ endf
 " Create css file for less source {{{
 
 function! s:lesscss_pipeline()
-  let s:lesscss_out = expand('%:p:h').'/'.g:lesscss_save_to
+  let lessc = lesscss#get_option('lesscss_cmd')
+  let save_to = lesscss#get_option('lesscss_save_to')
+  let s:lesscss_out = expand('%:p:h').'/'.save_to
 
   " prevent writing to remote dirs like ftp://*
   if s:lesscss_out !~# '\v^\w+\:\/'
     if !isdirectory(s:lesscss_out)
       exe '!mkdir -p '.s:lesscss_out.' > /dev/null 2>&1'
     endif
-    exe '!cd %:p:h && '.g:lesscss_cmd.' %:t > '.s:lesscss_out.'%:t:r.css'
+    exe '!cd %:p:h && '.lessc.' %:t > '.s:lesscss_out.'%:t:r.css'
   endif
 endfunction
 
@@ -88,7 +90,7 @@ function! s:lesscss(...)
       let opts = g:lesscss_commands[command]
       call lesscss#apply(opts)
 
-      if g:lesscss_on
+      if lesscss#get_option('lesscss_on')
         " silent the less compiler output and force redraw window
         execute ':silent call s:lesscss_pipeline() | :redraw!'
       endif

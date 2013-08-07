@@ -60,6 +60,16 @@ function! lesscss#apply(opts)
 endfunction
 
 " }}}
+" Returns option value for current buffer if exists or global otherwise {{{
+
+function! lesscss#get_option(name)
+  let name = a:name
+  return exists('b:'.name)
+        \ ? {'b:'.name}
+        \ : {'g:'.name}
+endfunction
+
+" }}}
 " Initialize plugin {{{
 
 function! lesscss#init()
