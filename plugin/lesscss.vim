@@ -86,8 +86,10 @@ function! s:lesscss(...)
       let opts = g:lesscss_commands[command]
       call lesscss#apply(opts)
 
-      " silent the less compiler output and force redraw window
-      execute ':silent call s:lesscss_pipeline() | :redraw!'
+      if g:lesscss_on
+        " silent the less compiler output and force redraw window
+        execute ':silent call s:lesscss_pipeline() | :redraw!'
+      endif
     else
       throw 'Unrecognized command ' . command
     endif
