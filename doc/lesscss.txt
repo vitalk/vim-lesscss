@@ -67,8 +67,8 @@ nice: >
 
                                                           *'lesscss_commands'*
 Default: {
-  'nocompress': {'g:lesscss_cmd': '$(which lessc)'},
-  'compress':   {'g:lesscss_cmd': '$(which lessc) --compress -O2'},
+  'nocompress': {'lesscss_cmd': '$(which lessc)'},
+  'compress':   {'lesscss_cmd': '$(which lessc) --compress -O2'},
 }
 
 Use this option to refine custom lesscss commands. Each command is a
@@ -84,10 +84,23 @@ If enabled, |:Lesscss| runs on each LESS file save.
 ------------------------------------------------------------------------------
 2.2 Commands                                                *lesscss-commands*
 
-:Lesscss                                                            *:Lesscss*
+:Lesscss[!] [{cmd}]                                                 *:Lesscss*
 
-Run predefined lesscss command or reuse previous. See |'lesscss_commands'| for
-more info.
+Run predefined lesscss command or reuse previous.
+
+Command applied globally unless the ! is provided, in which case the command
+applied only to current buffer.
+
+For example, to disable plugin globally use: >
+    :Lesscss off
+<
+But to disable plugin only for current buffer: >
+    :Lesscss! off
+<
+
+Note: While running :Lesscss respects local option over global one.
+
+See |'lesscss_commands'| for more info.
 
 ------------------------------------------------------------------------------
 2.3 Key bindings                                         *lesscss-keybindings*

@@ -70,6 +70,17 @@ function! lesscss#get_option(name)
 endfunction
 
 " }}}
+" Add prefix to option dictionary {{{
+
+function! lesscss#prefixed(opts, prefix)
+  let rv = {}
+  for [key, value] in items(a:opts)
+    let rv[a:prefix . key] = value
+  endfor
+  return rv
+endfunction
+
+" }}}
 " Initialize plugin {{{
 
 function! lesscss#init()
@@ -85,8 +96,8 @@ function! lesscss#init()
     call lesscss#warn('The command name ''default'' reserved by lesscss, please use another name')
   endif
   let g:lesscss_commands['default'] = {
-        \ 'g:lesscss_cmd': g:lesscss_cmd,
-        \ 'g:lesscss_save_to': g:lesscss_save_to,
+        \ 'lesscss_cmd': g:lesscss_cmd,
+        \ 'lesscss_save_to': g:lesscss_save_to,
         \ }
 endfunction
 

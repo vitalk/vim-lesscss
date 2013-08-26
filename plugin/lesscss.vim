@@ -28,10 +28,10 @@ call lesscss#default('g:lesscss_toggle_key', '<Leader>l')
 
 " registered commands
 call lesscss#default('g:lesscss_commands', {
-      \ 'on': {'g:lesscss_on': 1},
-      \ 'off': {'g:lesscss_on': 0},
-      \ 'nocompress': {'g:lesscss_cmd': '$(which lessc)'},
-      \ 'compress':   {'g:lesscss_cmd': '$(which lessc) --compress -O2'},
+      \ 'on': {'lesscss_on': 1},
+      \ 'off': {'lesscss_on': 0},
+      \ 'compress':   {'lesscss_cmd': '$(which lessc) --compress -O2'},
+      \ 'nocompress': {'lesscss_cmd': '$(which lessc)'},
       \ })
 
 " }}}
@@ -65,15 +65,19 @@ endfunction
 
 " }}}
 " Run predefined lesscss command or reuse previous {{{
-" Lesscss [name]
+" Lesscss[!] [cmd]
 "
 " Run previous command if 'name' is skipped. Use 'default' command if nothing to
 " reuse.
+"
+" Command applied globally unless the ! is provided, in which case the command
+" applied only to current buffer.
 command! -nargs=?
+      \  -bang
       \  -complete=customlist,<SID>lesscss_completion
-      \  Lesscss  call s:lesscss(<f-args>)
+      \  Lesscss  call s:lesscss(<bang>0, <f-args>)
 
-function! s:lesscss(...)
+function! s:lesscss(buffer_only, ...)
   if empty(a:000)
     let b:lesscss_last_command = exists('b:lesscss_last_command')
           \ ? b:lesscss_last_command
@@ -87,6 +91,7 @@ function! s:lesscss(...)
   try
     if has_key(g:lesscss_commands, command)
       let opts = g:lesscss_commands[command]
+      let opts = lesscss#prefixed(opts, a:buffer_only ? 'b:' : 'g:')
       call lesscss#apply(opts)
 
       if lesscss#get_option('lesscss_on')
