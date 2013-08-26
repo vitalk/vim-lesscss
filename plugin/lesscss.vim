@@ -2,7 +2,6 @@
 " Author:        Vital Kudzelka
 " Description:   Vim plugin that make it easy to edit less files without need to
 "                manually update corresponding css file.
-" Last Modified: January 20, 2013
 
 " Guard {{{
 
