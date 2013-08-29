@@ -78,14 +78,14 @@ command! -nargs=?
 
 function! s:lesscss(buffer_only, ...)
   if empty(a:000)
-    let b:lesscss_last_command = exists('b:lesscss_last_command')
-          \ ? b:lesscss_last_command
+    let g:lesscss_last_command = exists('g:lesscss_last_command')
+          \ ? g:lesscss_last_command
           \ : 'default'
   else
-    let b:lesscss_last_command = a:1
+    let g:lesscss_last_command = a:1
   endif
 
-  let command = b:lesscss_last_command
+  let command = g:lesscss_last_command
 
   try
     if has_key(g:lesscss_commands, command)
