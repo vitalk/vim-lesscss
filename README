@@ -13,6 +13,8 @@ git clone git://github.com/vitalk/vim-lesscss.git
 
 WALKTHROUGH
 
+This is a partial tutorial, see ':help lesscss' for more details.
+
 Change this to the location of 'lessc' on your system, or define some additional
 arguments when 'lessc' is called:
 
