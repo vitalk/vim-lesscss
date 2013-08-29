@@ -75,7 +75,8 @@ Use this option to refine custom lesscss commands. Each command is a
 dictionary that define |lesscss-options| you want to use when |:Lesscss| runs.
 
 Note: The name 'default' reserved for default options, e.g. options that user
-set in your `.vimrc`.
+set in your `.vimrc`, such as |lesscss_on|, |lesscss_cmd| and
+|lesscss_save_to|.
 
                                                                *'lesscss_on'*
 Default: 1
