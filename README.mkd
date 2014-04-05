@@ -15,6 +15,14 @@ cd ~/.vim/bundle
 git clone git://github.com/vitalk/vim-lesscss.git
 ```
 
+To install via [Vundle](https://github.com/gmarik/Vundle.vim) add to your
+`.vimrc`:
+
+```viml
+" Compiles your less files on the fly
+Bundle 'vitalk/vim-lesscss'
+```
+
 Walkthrough
 -----------
 
