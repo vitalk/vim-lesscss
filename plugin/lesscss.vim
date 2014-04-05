@@ -76,6 +76,12 @@ command! -nargs=?
       \  -complete=customlist,<SID>lesscss_completion
       \  Lesscss  call s:lesscss(<bang>0, <f-args>)
 
+" Finger-friendly command abbreviation
+cabb lesscss <c-r>=(
+      \ getcmdtype() == ':' &&
+      \ getcmdpos() == 1 ?
+      \ 'Lesscss' : 'lesscss')<CR>
+
 function! s:lesscss(buffer_only, ...)
   if empty(a:000)
     let g:lesscss_last_command = exists('g:lesscss_last_command')
