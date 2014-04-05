@@ -77,7 +77,10 @@ command! -nargs=?
       \  Lesscss  call s:lesscss(<bang>0, <f-args>)
 
 " Finger-friendly command abbreviation
-cabb lesscss Lesscss
+cabb lesscss <c-r>=(
+      \ getcmdtype() == ':' &&
+      \ getcmdpos() == 1 ?
+      \ 'Lesscss' : 'lesscss')<CR>
 
 function! s:lesscss(buffer_only, ...)
   if empty(a:000)
