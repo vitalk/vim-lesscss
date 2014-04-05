@@ -92,6 +92,11 @@ Run predefined lesscss command or reuse previous.
 Command applied globally unless the ! is provided, in which case the command
 applied only to current buffer.
 
+Plugin defines the following abbreviation so you can type :lesscss without
+capitalization. >
+cabbr lesscss Lesscss
+<
+
 For example, to disable plugin globally use: >
     :Lesscss off
 <
