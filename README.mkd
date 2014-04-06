@@ -4,6 +4,10 @@ Vim Lesscss
 Vim plugin that make it easy to edit less files without need to manually update
 corresponding css file.
 
+**Note**. For projects which have a complex structure automate this task with [any of](http://gruntjs.com/)
+[existing](http://gulpjs.com/) [task](http://mrbook.org/tutorials/make/) [runners](http://fabric.readthedocs.org/) (personally I prefer combination of [Grunt less](https://github.com/gruntjs/grunt-contrib-less)
+and [Grunt watch](https://github.com/gruntjs/grunt-contrib-watch)).
+
 Installation
 ------------
 
