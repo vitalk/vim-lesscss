@@ -69,4 +69,4 @@ License
 
 Copyright © Vital Kudzelka <vital.kudzelka@gmail.com>.
 
-Distribute under the same terms as Vim itself. See `:help license` for details.
+Distributed under the same terms as Vim itself. See `:help license` for details.
