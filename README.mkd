@@ -53,7 +53,7 @@ To toggle plugin just use the default key binding `<Leader>l` or remap it to
 something nice.
 
 ```viml
-" remap plugin toggle
+" remap plugin toggle key (keep it empty to completely disable keybinding)
 let g:lesscss_toggle_key = '<Leader>.'
 ```
 

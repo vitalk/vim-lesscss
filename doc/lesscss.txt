@@ -65,6 +65,10 @@ nice: >
     let g:lesscss_toggle_key = '<Leader>.'
 <
 
+To disable default keybinding, keep it empty: >
+    let g:lesscss_toggle_key = ''
+<
+
                                                           *'lesscss_commands'*
 Default: {
   'nocompress': {'lesscss_cmd': '$(which lessc)'},
