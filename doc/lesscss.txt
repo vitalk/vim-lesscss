@@ -82,6 +82,17 @@ set in your `.vimrc`, such as |lesscss_on|, |lesscss_cmd| and
 Default: 1
 If enabled, |:Lesscss| runs on each LESS file save.
 
+                                                  *'lesscss_enable_sourcemap'*
+Default: 0
+Enable source map for output. The map file will be placed in the same
+directory where the generated stylesheet, e.g. your can refine its location
+via |'lesscss_save_to'| option.
+
+Any additional source map options can be passed into the less compiler
+directly. >
+    let g:lesscss_cmd = '$(which lessc) --source-map-rootpath=/'
+<
+
 ------------------------------------------------------------------------------
 2.2 Commands                                                *lesscss-commands*
 
