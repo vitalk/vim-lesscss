@@ -143,6 +143,6 @@ or email mailto:vital.kudzelka@gmail.com
 ==============================================================================
 4. License                                                   *lesscss-license*
 
-Distribute under the same terms as Vim itself. See |license| for details.
+Distributed under the same terms as Vim itself. See |license| for details.
 
 vim:tw=78:sw=4:ft=help:norl:
